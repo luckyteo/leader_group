@@ -1,9 +1,10 @@
-package com.devsimple.leader_group.entity;
+package com.devsimple.leader_group.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 //Table - User
 @Entity
@@ -14,6 +15,7 @@ public class User {
 	private String id;
 
 	@Column(name = "username")
+	@Size(min = 2, message = "username should have atleast 2 characters")
 	private String username;
 
 	@Column(name = "password")
@@ -47,9 +49,16 @@ public class User {
 
 	}
 
-	public User(String id, String username, String password, String email,
-			Integer status, String lang, String fullname, String imageUrl,
-			String activationKey, String resetKey, String resetDate) {
+	public User(String id, String username, String password, String email) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+	}
+
+	public User(String id, String username, String password, String email, Integer status, String lang, String fullname,
+			String imageUrl, String activationKey, String resetKey, String resetDate) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -154,11 +163,9 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password="
-				+ password + ", email=" + email + ", status=" + status
-				+ ", lang=" + lang + ", fullname=" + fullname + ", imageUrl="
-				+ imageUrl + ", activationKey=" + activationKey + ", resetKey="
-				+ resetKey + ", resetDate=" + resetDate + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + ", status="
+				+ status + ", lang=" + lang + ", fullname=" + fullname + ", imageUrl=" + imageUrl + ", activationKey="
+				+ activationKey + ", resetKey=" + resetKey + ", resetDate=" + resetDate + "]";
 	}
 
 }

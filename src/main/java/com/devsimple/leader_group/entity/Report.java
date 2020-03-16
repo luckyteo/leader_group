@@ -1,0 +1,27 @@
+package com.devsimple.leader_group.entity;
+
+import lombok.Data;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Data
+@Entity
+@Table(name = "Report")
+public class Report {
+
+    @ManyToOne
+    @JoinColumn(name = "team_id")
+    private Team team;
+
+    @Id
+    private Long id;
+    private Long teamOwner;
+    private Long teamReport;
+    private Integer status;
+    private String descriptions;
+    private Date createAt;
+    private Date date;
+
+
+}

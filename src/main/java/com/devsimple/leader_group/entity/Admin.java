@@ -1,12 +1,15 @@
 package com.devsimple.leader_group.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-@Table(name = "Admin")
-public class Admin {
+@DiscriminatorValue("1")
+public class Admin extends User{
 
     //Relation
     @OneToOne
@@ -24,35 +27,4 @@ public class Admin {
     private String phone;
     @Column(name = "address")
     private String address;
-
-    protected Admin(){}
-    public Admin(User user, String phone, String address) {
-        this.user = user;
-        this.phone = phone;
-        this.address = address;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 }

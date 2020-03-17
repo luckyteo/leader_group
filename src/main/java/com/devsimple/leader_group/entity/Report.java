@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "Report")
+@Table(name = "leadergroup_report")
 public class Report {
 
     @ManyToOne

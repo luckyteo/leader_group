@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "Skill")
+@Table(name = "leadergroup_skill")
 @Data
 public class Skill {
 
@@ -27,46 +27,5 @@ public class Skill {
     private Integer scores;
     private Long userIdCreated;
 
-    public Skill() {
-    }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Integer getScores() {
-        return scores;
-    }
-
-    public void setScores(Integer scores) {
-        this.scores = scores;
-    }
-
-    public Long getUserIdCreated() {
-        return userIdCreated;
-    }
-
-    public void setUserIdCreated(Long userIdCreated) {
-        this.userIdCreated = userIdCreated;
-    }
 }

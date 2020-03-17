@@ -1,15 +1,17 @@
 package com.devsimple.leader_group.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "developer")
 @Data
-public class Developer {
+@EqualsAndHashCode(callSuper = true)
+@Entity
+@DiscriminatorValue("2")
+public class Developer extends User{
 
     //Relation
 
@@ -47,87 +49,4 @@ public class Developer {
     private Boolean isLeader;
     private Boolean canLogin;
     private String cvUrl;
-
-    public Developer() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getCmndId() {
-        return cmndId;
-    }
-
-    public void setCmndId(String cmndId) {
-        this.cmndId = cmndId;
-    }
-
-    public String getCmndDate() {
-        return cmndDate;
-    }
-
-    public void setCmndDate(String cmndDate) {
-        this.cmndDate = cmndDate;
-    }
-
-    public String getCmndPlace() {
-        return cmndPlace;
-    }
-
-    public void setCmndPlace(String cmndPlace) {
-        this.cmndPlace = cmndPlace;
-    }
-
-    public String getCmndDocument() {
-        return cmndDocument;
-    }
-
-    public void setCmndDocument(String cmndDocument) {
-        this.cmndDocument = cmndDocument;
-    }
-
-    public Boolean getLeader() {
-        return isLeader;
-    }
-
-    public void setLeader(Boolean leader) {
-        isLeader = leader;
-    }
-
-    public Boolean getCanLogin() {
-        return canLogin;
-    }
-
-    public void setCanLogin(Boolean canLogin) {
-        this.canLogin = canLogin;
-    }
-
-    public String getCvUrl() {
-        return cvUrl;
-    }
-
-    public void setCvUrl(String cvUrl) {
-        this.cvUrl = cvUrl;
-    }
 }

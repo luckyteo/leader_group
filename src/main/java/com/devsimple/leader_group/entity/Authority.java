@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "Authority")
+@Table(name = "leadergroup_authority")
 public class Authority {
 
 	@Id
@@ -21,45 +21,4 @@ public class Authority {
 
 	@Column(name = "is_system_role")
 	private Boolean isSystemRole;
-
-	protected Authority() {
-	}
-
-	public Authority(String name, String des, Boolean isSystemRole) {
-		super();
-		this.name = name;
-		this.des = des;
-		this.isSystemRole = isSystemRole;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDes() {
-		return des;
-	}
-
-	public void setDes(String des) {
-		this.des = des;
-	}
-
-	public Boolean getIsSystemRole() {
-		return isSystemRole;
-	}
-
-	public void setIsSystemRole(Boolean isSystemRole) {
-		this.isSystemRole = isSystemRole;
-	}
-
-	@Override
-	public String toString() {
-		return "Authority [name=" + name + ", des=" + des + ", isSystemRole="
-				+ isSystemRole + "]";
-	}
-
 }

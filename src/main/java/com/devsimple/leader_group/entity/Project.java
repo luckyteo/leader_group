@@ -9,9 +9,8 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "Project")
+@Table(name = "leadergroup_project")
 public class Project {
-
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "join_project_skill",

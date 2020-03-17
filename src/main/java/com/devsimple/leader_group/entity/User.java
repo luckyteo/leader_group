@@ -2,16 +2,22 @@ package com.devsimple.leader_group.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 //Table - User
-@Entity
-@Table(name = "User")
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class User {
+@Entity
+@Table(name = "leadergroup_user")
+
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "user_type",
+        discriminatorType = DiscriminatorType.INTEGER)
+public class User extends AbstractAuditingEntity {
 
     //Relation
     @JsonIgnore
@@ -62,120 +68,5 @@ public class User {
 
     @Column(name = "reset_date")
     private String resetDate;
-
-    public User() {
-
-    }
-
-	public User(Long id, String username, String password, String email, String fullname) {
-		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.email = email;
-		this.fullname = fullname;
-	}
-
-	public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getLang() {
-        return lang;
-    }
-
-    public void setLang(String lang) {
-        this.lang = lang;
-    }
-
-    public String getFullname() {
-        return fullname;
-    }
-
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
-    public String getActivationKey() {
-        return activationKey;
-    }
-
-    public void setActivationKey(String activationKey) {
-        this.activationKey = activationKey;
-    }
-
-    public String getResetKey() {
-        return resetKey;
-    }
-
-    public void setResetKey(String resetKey) {
-        this.resetKey = resetKey;
-    }
-
-    public String getResetDate() {
-        return resetDate;
-    }
-
-    public void setResetDate(String resetDate) {
-        this.resetDate = resetDate;
-    }
-
-    public Set<Authority> getAuthorities() {
-        return authorities;
-    }
-
-    public void setAuthorities(Set<Authority> authorities) {
-        this.authorities = authorities;
-    }
-
-    @Override
-    public String toString() {
-        return "User [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + ", status="
-                + status + ", lang=" + lang + ", fullname=" + fullname + ", imageUrl=" + imageUrl + ", activationKey="
-                + activationKey + ", resetKey=" + resetKey + ", resetDate=" + resetDate + "]";
-    }
 
 }

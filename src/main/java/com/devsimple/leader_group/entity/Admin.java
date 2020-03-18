@@ -1,7 +1,6 @@
 package com.devsimple.leader_group.entity;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
@@ -21,4 +20,6 @@ public class Admin{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String phone;
+    private String address;
 }

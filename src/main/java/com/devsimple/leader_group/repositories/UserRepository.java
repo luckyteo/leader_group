@@ -1,4 +1,4 @@
-package com.devsimple.leader_group.user;
+package com.devsimple.leader_group.repositories;
 
 import com.devsimple.leader_group.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;

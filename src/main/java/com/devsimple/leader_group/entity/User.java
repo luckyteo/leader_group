@@ -65,6 +65,5 @@ public class User extends AbstractAuditingEntity {
     @Column(name = "reset_date")
     private String resetDate;
 
-    private String phone;
-    private String address;
+
 }

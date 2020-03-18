@@ -1,7 +1,6 @@
 package com.devsimple.leader_group.entity;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -48,4 +47,6 @@ public class Developer{
     private Boolean isLeader;
     private Boolean canLogin;
     private String cvUrl;
+    private String phone;
+    private String address;
 }

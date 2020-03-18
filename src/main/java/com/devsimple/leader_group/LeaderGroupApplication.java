@@ -1,7 +1,7 @@
 package com.devsimple.leader_group;
 
-import com.devsimple.leader_group.service.RepoAdmin;
-import com.devsimple.leader_group.user.UserRepository;
+import com.devsimple.leader_group.repositories.RepoAdmin;
+import com.devsimple.leader_group.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,7 +22,7 @@ public class LeaderGroupApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        
+
     }
 
 

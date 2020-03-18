@@ -1,7 +1,8 @@
-package com.devsimple.leader_group.user;
+package com.devsimple.leader_group.service;
 
 import com.devsimple.leader_group.entity.User;
 import com.devsimple.leader_group.exception.RunException;
+import com.devsimple.leader_group.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

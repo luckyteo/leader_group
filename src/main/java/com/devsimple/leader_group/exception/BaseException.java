@@ -1,6 +1,5 @@
 package com.devsimple.leader_group.exception;
 
-import com.devsimple.leader_group.user.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

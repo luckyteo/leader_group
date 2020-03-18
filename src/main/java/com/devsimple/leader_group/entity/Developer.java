@@ -15,9 +15,9 @@ public class Developer extends User{
 
     //Relation
 
-    @OneToOne
-    @MapsId
-    private User user;
+//    @OneToOne
+//    @MapsId
+//    private User user;
 
     @ManyToOne
     @JoinColumn(name = "team_id")
@@ -30,7 +30,7 @@ public class Developer extends User{
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "join_developer_skill",
     joinColumns = @JoinColumn(name = "developer_id", referencedColumnName =
-            "user_id"),
+            "id"),
     inverseJoinColumns = @JoinColumn(name="skill_id", referencedColumnName =
             "id"))
     private List<Skill> skills = new ArrayList<>();
@@ -40,8 +40,7 @@ public class Developer extends User{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String phone;
-    private String address;
+
     private String cmndId;
     private String cmndDate;
     private String cmndPlace;

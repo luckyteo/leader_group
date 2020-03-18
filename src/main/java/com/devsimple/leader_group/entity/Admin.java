@@ -12,19 +12,15 @@ import javax.persistence.*;
 public class Admin extends User{
 
     //Relation
-    @OneToOne
-    @MapsId // su dung chung id  FK tren admin voi PK id tren user
-    //@JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+//    @OneToOne
+//    @MapsId // su dung chung id  FK tren admin voi PK id tren user
+//    //@JoinColumn(name = "user_id", referencedColumnName = "id")
+//    private User user;
 
     //Properties
 
-    @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//    @Id
+//    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
 
-    @Column(name = "phone")
-    private String phone;
-    @Column(name = "address")
-    private String address;
 }

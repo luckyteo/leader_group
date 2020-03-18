@@ -28,11 +28,11 @@ public class User extends AbstractAuditingEntity {
             inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "name")})
     private Set<Authority> authorities = new HashSet<>();
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private Admin admin;
-
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private Developer dev;
+//    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    private Admin admin;
+//
+//    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    private Developer dev;
 
     //Properties
     @Id
@@ -69,4 +69,6 @@ public class User extends AbstractAuditingEntity {
     @Column(name = "reset_date")
     private String resetDate;
 
+    private String phone;
+    private String address;
 }

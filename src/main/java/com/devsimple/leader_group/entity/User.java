@@ -13,10 +13,6 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "leadergroup_user")
-
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "user_type",
-        discriminatorType = DiscriminatorType.INTEGER)
 public class User extends AbstractAuditingEntity {
 
     //Relation

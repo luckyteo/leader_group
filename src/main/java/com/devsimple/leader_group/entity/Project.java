@@ -21,7 +21,7 @@ public class Project {
                     "id"))
     private List<Skill> skills = new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
     private Team team;
 

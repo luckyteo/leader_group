@@ -8,29 +8,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@EqualsAndHashCode(callSuper = true)
 @Entity
-@DiscriminatorValue("2")
-public class Developer extends User{
+@Table(name = "leadergroup_developer")
+public class Developer{
 
     //Relation
 
-//    @OneToOne
-//    @MapsId
-//    private User user;
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
     private Team team;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "province_id")
     private Province province;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "join_developer_skill",
     joinColumns = @JoinColumn(name = "developer_id", referencedColumnName =
-            "id"),
+            "user_id"),
     inverseJoinColumns = @JoinColumn(name="skill_id", referencedColumnName =
             "id"))
     private List<Skill> skills = new ArrayList<>();

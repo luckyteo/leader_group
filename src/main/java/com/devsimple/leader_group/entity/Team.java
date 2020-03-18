@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 @Table(name = "leadergroup_team")
 @Data
-public class Team {
+public class Team extends AbstractAuditingEntity{
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "team", fetch = FetchType.LAZY)
     private List<Developer> developers = new ArrayList<>();

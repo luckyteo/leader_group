@@ -11,13 +11,13 @@ import java.util.List;
 @Table(name = "leadergroup_province")
 public class Province {
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "province")
-    private List<Developer> developers = new ArrayList<>();
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "province")
+//    private List<Developer> developers = new ArrayList<>();
 
     @Id
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id", referencedColumnName = "id")
     private Province parent;
     private String name;

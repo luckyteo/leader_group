@@ -1,8 +1,7 @@
 package com.devsimple.leader_group.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -11,6 +10,9 @@ import java.util.Set;
 //Table - User
 @EqualsAndHashCode(callSuper = true)
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "leadergroup_user")
 public class User extends AbstractAuditingEntity {

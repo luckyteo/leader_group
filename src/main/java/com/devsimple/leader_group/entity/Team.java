@@ -11,14 +11,14 @@ import java.util.List;
 @Data
 public class Team extends AbstractAuditingEntity{
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "team", fetch = FetchType.LAZY)
-    private List<Developer> developers = new ArrayList<>();
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "team", fetch = FetchType.LAZY)
+//    private List<Developer> developers = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "team", fetch = FetchType.LAZY)
-    private List<Report> reports = new ArrayList<>();
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "team", fetch = FetchType.LAZY)
+//    private List<Report> reports = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "team", fetch = FetchType.LAZY)
-    private List<Project> projects = new ArrayList<>();
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "team", fetch = FetchType.LAZY)
+//    private List<Project> projects = new ArrayList<>();
 
     @Id
     private Long id;

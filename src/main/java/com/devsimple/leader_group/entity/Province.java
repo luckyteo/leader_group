@@ -17,7 +17,7 @@ public class Province {
     @Id
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "parent_id", referencedColumnName = "id")
     private Province parent;
     private String name;

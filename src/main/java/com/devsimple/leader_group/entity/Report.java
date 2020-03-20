@@ -10,7 +10,7 @@ import java.util.Date;
 @Table(name = "leadergroup_report")
 public class Report {
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "team_id")
     private Team team;
 

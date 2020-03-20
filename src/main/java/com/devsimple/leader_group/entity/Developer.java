@@ -37,7 +37,7 @@ public class Developer{
     //Properties
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
 
     private String cmndId;

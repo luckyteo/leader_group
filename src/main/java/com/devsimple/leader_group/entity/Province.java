@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Province {
 
     @Id
-    private Long id;
+    private String id;
 
     @ManyToOne
     @JoinColumn(name = "parent_id", referencedColumnName = "id")

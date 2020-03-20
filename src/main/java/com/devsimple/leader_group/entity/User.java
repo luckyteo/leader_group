@@ -1,9 +1,13 @@
 package com.devsimple.leader_group.entity;
 
+import com.devsimple.leader_group.config.Constants;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,7 +19,9 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "leadergroup_user")
-public class User extends AbstractAuditingEntity {
+public class User extends AbstractAuditingEntity implements java.io.Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     //Relation
     @JsonIgnore
@@ -29,13 +35,20 @@ public class User extends AbstractAuditingEntity {
 
     //Properties
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GenericGenerator(name = "seq_id", strategy = "com.devsimple.leader_group.gen.SequenceGenerator")
+    @GeneratedValue(generator = "seq_id")
+    private String id;
 
-    @Column(name = "username", unique = true)
-    private String username;
+    @NotNull
+    @Pattern(regexp = Constants.LOGIN_REGEX)
+    //@Size(min = 1, max = 50)
+    @Column(length = 50, unique = true, nullable = false)
+    private String login;
 
-    @Column(name = "password")
+    @JsonIgnore
+    @NotNull
+    //@Size(min = 60, max = 60)
+    @Column(name = "password_hash", length = 60, nullable = false)
     private String password;
 
     @Column(name = "email")

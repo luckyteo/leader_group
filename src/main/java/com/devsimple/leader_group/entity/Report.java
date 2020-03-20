@@ -15,7 +15,7 @@ public class Report {
     private Team team;
 
     @Id
-    private Long id;
+    private String id;
     private Long teamOwner;
     private Long teamReport;
     private Integer status;

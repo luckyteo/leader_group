@@ -1,9 +1,12 @@
 package com.devsimple.leader_group;
 
 import com.devsimple.leader_group.entity.Admin;
+import com.devsimple.leader_group.entity.Developer;
 import com.devsimple.leader_group.entity.User;
+import com.devsimple.leader_group.repositories.DevRepository;
 import com.devsimple.leader_group.repositories.RepoAdmin;
 import com.devsimple.leader_group.repositories.UserRepository;
+import com.devsimple.leader_group.util.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -17,23 +20,41 @@ public class LeaderGroupApplication implements CommandLineRunner {
     @Autowired
     private RepoAdmin repoAdmin;
 
+    @Autowired
+    private DevRepository repoDev;
+
     public static void main(String[] args) {
         SpringApplication.run(LeaderGroupApplication.class, args);
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
 
-//        User user = new User();
-//        user.setId(1L);
-//        user.setUsername("taint");
-//        user.setPassword("pass");
-//        user.setFullname("Tai The");
-//
-//        Admin admin = new Admin();
-//        admin.setUser(user);
-//        admin.setPhone("0987098709");
-//        admin.setAddress("LA");
+        //Admin
+        User user = new User();
+        user.setLogin("taint");
+        user.setPassword(Utils.getMd5("pass"));
+        user.setFullname("Tai The");
+
+//        repoUser.save(user);
+
+        Admin admin = new Admin();
+        admin.setUser(user);
+        admin.setPhone("0987098709");
+        admin.setAddress("LA");
+
+        repoAdmin.save(admin);
+
+        //dev
+        User userDev = new User();
+        userDev.setLogin("taintDev");
+        userDev.setPassword(Utils.getMd5("pass"));
+        userDev.setFullname("Tai The DEV");
+        Developer dev = new Developer();
+        dev.setUser(userDev);
+        dev.setCanLogin(true);
+        dev.setCmndId("123456789");
+        repoDev.save(dev);
 
 
     }

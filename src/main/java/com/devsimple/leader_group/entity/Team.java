@@ -12,7 +12,7 @@ import java.util.List;
 public class Team extends AbstractAuditingEntity{
 
     @Id
-    private Long id;
+    private String id;
     private String name;
     private String serviceDescription;
     private String coverImage;

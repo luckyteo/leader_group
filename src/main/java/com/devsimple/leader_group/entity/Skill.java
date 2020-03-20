@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Skill {
 
     @Id
-    private Long id;
+    private String id;
     private String name;
     private String description;
     private Integer scores;

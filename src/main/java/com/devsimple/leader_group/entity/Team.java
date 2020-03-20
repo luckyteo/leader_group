@@ -2,23 +2,14 @@ package com.devsimple.leader_group.entity;
 
 import lombok.Data;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Data
 @Entity
 @Table(name = "leadergroup_team")
-@Data
 public class Team extends AbstractAuditingEntity{
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "team", fetch = FetchType.LAZY)
-    private List<Developer> developers = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "team", fetch = FetchType.LAZY)
-    private List<Report> reports = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "team", fetch = FetchType.LAZY)
-    private List<Project> projects = new ArrayList<>();
 
     @Id
     private Long id;

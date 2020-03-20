@@ -22,8 +22,20 @@ public class LeaderGroupApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+//        User user = new User();
+//        user.setId(1L);
+//        user.setUsername("taint");
+//        user.setPassword("pass");
+//        user.setFullname("Tai The");
+//
+//        Admin admin = new Admin();
+//        admin.setUser(user);
+//        admin.setPhone("0987098709");
+//        admin.setAddress("LA");
+
 
     }
+
 
 
 }

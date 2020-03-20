@@ -9,12 +9,12 @@ import javax.persistence.*;
 @Table(name = "leadergroup_admin")
 public class Admin{
 
-    //Relation
+    /*Relation*/
     @OneToOne
     @MapsId // su dung chung id  FK tren admin voi PK id tren user
     private User user;
 
-    //Properties
+    /*Properties*/
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

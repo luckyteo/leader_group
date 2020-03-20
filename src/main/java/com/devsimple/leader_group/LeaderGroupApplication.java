@@ -1,5 +1,7 @@
 package com.devsimple.leader_group;
 
+import com.devsimple.leader_group.entity.Admin;
+import com.devsimple.leader_group.entity.User;
 import com.devsimple.leader_group.repositories.RepoAdmin;
 import com.devsimple.leader_group.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LeaderGroupApplication implements CommandLineRunner {
 
     @Autowired
-    private UserRepository repo;
+    private UserRepository repoUser;
     @Autowired
     private RepoAdmin repoAdmin;
 

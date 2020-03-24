@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 public class LeaderGroupApplication implements CommandLineRunner {
@@ -19,6 +20,9 @@ public class LeaderGroupApplication implements CommandLineRunner {
     private UserRepository repoUser;
     @Autowired
     private RepoAdmin repoAdmin;
+
+    @Autowired
+    private BCryptPasswordEncoder bcryptEncoder;
 
     @Autowired
     private DevRepository repoDev;
@@ -33,7 +37,7 @@ public class LeaderGroupApplication implements CommandLineRunner {
         //Admin
         User user = new User();
         user.setLogin("taint");
-        user.setPassword(Utils.getMd5("pass"));
+        user.setPassword(bcryptEncoder.encode("pass"));
         user.setFullname("Tai The");
 
 //        repoUser.save(user);
@@ -48,7 +52,7 @@ public class LeaderGroupApplication implements CommandLineRunner {
         //dev
         User userDev = new User();
         userDev.setLogin("taintDev");
-        userDev.setPassword(Utils.getMd5("pass"));
+        userDev.setPassword(bcryptEncoder.encode("pass"));
         userDev.setFullname("Tai The DEV");
         Developer dev = new Developer();
         dev.setUser(userDev);

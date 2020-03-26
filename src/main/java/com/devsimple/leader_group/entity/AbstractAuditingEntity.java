@@ -1,6 +1,7 @@
 package com.devsimple.leader_group.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -16,7 +17,10 @@ import java.time.Instant;
 @Data
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class AbstractAuditingEntity {
+
+    private static final long serialVersionUID = 1L;
 
     @CreatedBy
     @Column(name = "created_by", nullable = false, length = 50, updatable = false)
@@ -37,4 +41,9 @@ public abstract class AbstractAuditingEntity {
     @Column(name = "last_modified_date")
     @JsonIgnore
     private Instant lastModifiedDate = Instant.now();
+
+    //setter
+
+    //getter
+
 }

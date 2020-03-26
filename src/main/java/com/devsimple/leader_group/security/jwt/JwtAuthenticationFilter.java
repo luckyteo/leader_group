@@ -1,6 +1,5 @@
 package com.devsimple.leader_group.security.jwt;
 
-import com.devsimple.leader_group.security.DomainUserDetailsService;
 import com.devsimple.leader_group.util.Constants;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +32,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String username = null;
         String authToken = null;
         if (header != null && header.startsWith(Constants.TOKEN_PREFIX)) {
-            authToken = header.replace(Constants.TOKEN_PREFIX,"");
+            authToken = header.replace(Constants.TOKEN_PREFIX, "");
             try {
                 username = jwtTokenUtil.getUsernameFromToken(authToken);
             } catch (IllegalArgumentException e) {
